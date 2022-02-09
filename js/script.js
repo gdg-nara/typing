@@ -20,7 +20,7 @@ let randomWord;
 let score = 0;
 
 // Init time
-let time = 50;
+let time = 120;
 
 // Set difficulty
 let difficulty =
