@@ -1,19 +1,16 @@
-# Typing-Game-JS
+# Type Python
 
-**This is a simple speed typing game using javascript, where you can make select difficulty easy, medium, or hard.
-You will have a specific time to type each word, and if you can type the word shown on the screen within the allotted time, you will see another new word on your computer screen.
- As you type each word correctly, you will get a few seconds bonus!**
- 
- # Features!
- - Speed Typing
- - Score countdown
- - Difficulty selection (Easy, Medium or Hard)
- - Scheduled time for each word
- - Bonus time for fast typing
- - Reload screen
- - Difficulty panel show and hide button
- - Awesome UI
+Python の予約語と組み込み関数を覚えるための Web アプリです。
 
- # Live Demo
- [Typing-Game-JS (click to see live demo)](https://mehedilslamripon.github.io/Typing-Game-JS/ "Typing-Game-JS (live demo)").
-# type-python
+## Demo
+
+[https://gdg-nara.github.io/type-python/](https://gdg-nara.github.io/type-python/)
+
+
+## 参考
+
+https://github.com/MehedilslamRipon/Typing-Game-JS
+
+## ライセンス
+
+GPL 3
