@@ -9,7 +9,7 @@ const settings = document.getElementById("settings");
 const difficultySelect = document.getElementById("difficulty");
 
 // list of words for game
-const words = ['min', 'oct', 'None', 'format', 'staticmethod', 'NotImplemented', 'ChildProcessError', 'license', 'frozenset', 'ImportWarning',  'tuple', 'while', 'pass', 'BufferError', 'breakpoint', 'TimeoutError', 'IOError', 'StopIteration', 'ConnectionAbortedError', 'if', 'TypeError', 'reversed', 'bool', 'ConnectionResetError', 'ZeroDivisionError', 'or', 'UnboundLocalError', 'UnicodeDecodeError', 'property', 'Ellipsis', 'SystemExit', 'pow', 'finally', 'chr', 'globals', 'in', 'NotImplementedError', 'elif', 'round', 'ProcessLookupError', 'issubclass', 'len', 'ConnectionError', 'RuntimeError', 'bytearray', 'UnicodeTranslateError', 'print', 'break', 'Exception', 'ModuleNotFoundError', 'filter', 'object', 'FileExistsError', 'hasattr', 'GeneratorExit', 'await', 'BrokenPipeError', 'EnvironmentError', 'def', 'int', 'BlockingIOError', 'LookupError', 'as', 'yield', 'enumerate', 'RecursionError', 'UnicodeEncodeError', 'eval', 'Warning', 'except', 'delattr', 'str', 'help', 'not', 'iter', 'ReferenceError', 'RuntimeWarning', 'callable', '__', 'StopAsyncIteration', 'bytes', 'class', 'EOFError', 'UserWarning', 'list', 'compile', 'SyntaxWarning', 'IndexError', 'float', 'slice', 'vars', 'BaseException', 'OSError', 'sum', 'UnicodeWarning', 'classmethod', 'FutureWarning', 'getattr', 'TabError', 'sorted', 'del', 'abs', 'ConnectionRefusedError', 'map', 'FileNotFoundError', 'dir', 'PermissionError', 'memoryview', 'ResourceWarning', 'MemoryError', 'for', 'hash', 'global', 'with', 'zip', 'exit', 'raise', 'async', 'set', 'InterruptedError', 'divmod', 'import', 'OverflowError', 'else', 'dict', 'True', 'continue', 'nonlocal', 'is', 'return', 'ValueError', 'UnicodeError', 'isinstance', 'False', 'exec', 'KeyboardInterrupt', 'assert', 'repr', 'SystemError', 'BytesWarning', 'NotADirectoryError', 'setattr', 'IsADirectoryError', 'IndentationError', 'ArithmeticError', 'and', 'ascii', 'complex', 'KeyError', 'all', 'FloatingPointError', 'super', 'from', 'ImportError', 'open', 'PendingDeprecationWarning', 'hex', 'lambda', 'AttributeError', 'quit', 'max', 'any', 'next', 'AssertionError', 'copyright', 'credits', 'range', 'id', 'DeprecationWarning', 'ord', 'SyntaxError', 'locals', 'try', 'bin', 'input', 'NameError', 'type'];
+const words = ['min', 'oct', 'None', 'format', 'frozenset', 'tuple', 'while', 'pass', 'breakpoint', 'if', 'reversed', 'bool', 'or', 'pow', 'finally', 'chr', 'globals', 'in', 'elif', 'round', 'issubclass', 'len', 'bytearray', 'print', 'break', 'Exception', 'filter', 'object', 'await', 'def', 'int', 'as', 'yield', 'eval', 'except', 'delattr', 'str', 'help', 'not', 'iter', '_', 'bytes', 'class', 'list', 'compile', 'float', 'slice', 'sum', 'sorted', 'del', 'abs', 'map', 'dir', 'for', 'hash', 'global', 'with', 'zip', 'exit', 'raise', 'async', 'set', 'divmod', 'import', 'else', 'dict', 'True', 'continue', 'nonlocal', 'is', 'return', 'isinstance', 'False', 'exec', 'assert', 'repr', 'setattr', 'and', 'ascii', 'complex', 'all', 'super', 'from', 'open', 'hex', 'lambda', 'quit', 'max', 'any', 'next', 'copyright', 'credits', 'range', 'id', 'ord', 'locals', 'try', 'bin', 'input', 'type'];
 
 // Init word
 let randomWord;
@@ -18,7 +18,7 @@ let randomWord;
 let score = 0;
 
 // Init time
-let time = 120;
+let time = 180;
 
 // Set difficulty
 let difficulty =
@@ -93,14 +93,14 @@ text.addEventListener("input", (e) => {
     e.target.value = "";
 
     if (difficulty === "hard") {
-      time += 2;
+      time += 0;
     } else if (difficulty === "medium") {
-      time += 3;
+      time += 0;
     } else {
-      time += 5;
+      time += 0;
     }
 
-    updateTime();
+//    updateTime();
   }
 });
 
