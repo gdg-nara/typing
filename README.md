@@ -4,7 +4,7 @@ Python の予約語と組み込み関数を覚えるための Web アプリで�
 
 ## Demo
 
-[https://gdg-nara.github.io/type-python/](https://gdg-nara.github.io/type-python/)
+[https://gdg-nara.github.io/type-python](https://gdg-nara.github.io/type-python)
 
 
 ## 参考
