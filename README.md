@@ -8,7 +8,9 @@ Python の予約語と組み込み関数を覚えるための Web アプリで�
 
 ## 目標
 
-以下の 177 語を2分以内に打ち終えることが目標です。
+以下の 177 語を 5 分以内に打ち終えることが目標です。
+
+総文字数は 1500 文字です。
 
 ```
 min
@@ -88,7 +90,6 @@ iter
 ReferenceError
 RuntimeWarning
 callable
-__
 StopAsyncIteration
 bytes
 class
