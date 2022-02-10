@@ -11,8 +11,11 @@ const difficultySelect = document.getElementById("difficulty");
 // list of words for game
 const words = ['min', 'oct', 'None', 'format', 'frozenset', 'tuple', 'while', 'pass', 'breakpoint', 'if', 'reversed', 'bool', 'or', 'pow', 'finally', 'chr', 'globals', 'in', 'elif', 'round', 'issubclass', 'len', 'bytearray', 'print', 'break', 'Exception', 'filter', 'object', 'await', 'def', 'int', 'as', 'yield', 'eval', 'except', 'delattr', 'str', 'help', 'not', 'iter', '_', 'bytes', 'class', 'list', 'compile', 'float', 'slice', 'sum', 'sorted', 'del', 'abs', 'map', 'dir', 'for', 'hash', 'global', 'with', 'zip', 'exit', 'raise', 'async', 'set', 'divmod', 'import', 'else', 'dict', 'True', 'continue', 'nonlocal', 'is', 'return', 'isinstance', 'False', 'exec', 'assert', 'repr', 'setattr', 'and', 'ascii', 'complex', 'all', 'super', 'from', 'open', 'hex', 'lambda', 'quit', 'max', 'any', 'next', 'copyright', 'credits', 'range', 'id', 'ord', 'locals', 'try', 'bin', 'input', 'type'];
 
-// Init word
-let randomWord;
+// 現在の単語
+var currentWord = "";
+
+// 現在の問題番号
+var currentNumber = 0;
 
 // Init score
 let score = 0;
@@ -39,14 +42,21 @@ text.focus();
 const timeInterval = setInterval(updateTime, 1000);
 
 // Random words generator from Array
-function getRandomWord() {
-  return words[Math.floor(Math.random() * words.length)];
+function getCurrentWord() {
+  //
+  currentWord = words[currentNumber];
+  return currentWord
 }
 
 // add word to DOM
 function addWordToDOM() {
-  randomWord = getRandomWord();
-  word.innerHTML = randomWord;
+  if(currentNumber==0){
+    currentWord = getCurrentWord();
+    word.innerHTML = currentWord;  
+  }else{
+    currentWord = getCurrentWord();
+    word.innerHTML = currentWord;  
+  }
 }
 
 // update score
@@ -80,27 +90,29 @@ function gameOver() {
   endGameElement.style.display = "flex";
 }
 
-addWordToDOM();
+// show Game over
+function gameClear() {
+  endGameElement.innerHTML = `
+  <h1>ゲームクリア！！</h1>`;
+  endGameElement.style.display = "flex";
+}
 
 // Typing Event
 text.addEventListener("input", (e) => {
   const insertedText = e.target.value;
+  
+  if (insertedText === currentWord) {
 
-  if (insertedText === randomWord) {
+    if(currentNumber <= 98){
+      currentNumber = currentNumber + 1;
+    } else {
+      gameClear();
+    }
+
     addWordToDOM();
     updateScore();
 
     e.target.value = "";
-
-    if (difficulty === "hard") {
-      time += 0;
-    } else if (difficulty === "medium") {
-      time += 0;
-    } else {
-      time += 0;
-    }
-
-//    updateTime();
   }
 });
 
@@ -112,3 +124,5 @@ difficultySelect.addEventListener("change", (e) => {
   difficulty = e.target.value;
   localStorage.setItem("difficulty", difficulty);
 });
+
+addWordToDOM();
