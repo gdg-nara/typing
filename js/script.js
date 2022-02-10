@@ -23,6 +23,15 @@ let score = 0;
 // Init time
 let time = 180;
 
+// player
+const player = new talkify.Html5Player();
+player.forceLanguage('en');
+player.setRate(0.7);
+
+function playWord(word){
+  player.playText(word);
+}
+
 // Set difficulty
 let difficulty =
   localStorage.getItem("difficulty") !== null
@@ -50,13 +59,9 @@ function getCurrentWord() {
 
 // add word to DOM
 function addWordToDOM() {
-  if(currentNumber==0){
     currentWord = getCurrentWord();
-    word.innerHTML = currentWord;  
-  }else{
-    currentWord = getCurrentWord();
-    word.innerHTML = currentWord;  
-  }
+    word.innerHTML = currentWord;
+    playWord(currentWord);
 }
 
 // update score
