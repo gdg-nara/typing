@@ -98,3 +98,24 @@ input {
   height: 100%;
   z-index: 1;
 }
+
+#symbolDocs{
+  font-size: 15px;
+  padding-top: 15px;
+}
+
+button{
+  background-color: #34495e;
+  color: aliceblue;
+}
+
+#languageSelect{
+  margin-bottom: 20px;
+}
+
+
+h2 {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 8px;
+  border-radius: 4px;
+}

@@ -1,36 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="./js/talkify.min.js"></script>
-    <title>Typing Python</title>
-
+    <title>Typing</title>
 </head>
-
 <body>
-    <button id="settings-btn" class="settings-btn" style="display:none">
-        ⚙️
-    </button>
 
     <div class="container">
-        <h2>Typing Python</h2>
-        <small></small>
+        <div id="menu">
+            <h2>言語を選択してください</h2>
+            <div id="languageSelect">
+                <button onclick="typing()">Python</button>
+                <button>Ruby</button>
+                <button>JavaScript</button>
+                <button>HTML</button>
+            </div>
+        </div>    
 
-        <h1 id="word"></h1>
+        <div id="playground" style="display: none">
+            <h2 id="targetLanguage">Typing</h2>
+            <small></small>
 
-        <input type="text" id="text" autocomplete="off" placeholder="" />
+            <h1 id="symbol"></h1>
+            <h1 id="symbolDocs"></h1>
 
-        <p class="time-container">制限時間: <span id="time">180秒</span></p>
+            <input type="text" id="text" autocomplete="off" placeholder="" />
 
-        <p class="score-container"><span id="score">0</span></p>
+            <p class="time-container">制限時間: <span id="time">180秒</span></p>
 
-        <div id="end-game-container" class="end-game-container"></div>
+            <p class="score-container"><span id="score">0 点</span></p>
+
+            <div id="end-game-container" class="end-game-container"></div>
+        </div>    
     </div>
-
     <script src="js/script.js"></script>
 </body>
-
 </html>

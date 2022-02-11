@@ -1,12 +1,134 @@
+function typing(){
+
+document.getElementById("playground").style.display = "";
+
 // セレクタ
-const word = document.getElementById("word");
+const symbol = document.getElementById("symbol");
+const symbolDocs = document.getElementById("symbolDocs");
+
 const text = document.getElementById("text");
+
+document.getElementById("targetLanguage").style.display = "true";
+
+
+
+
+
+
 const scoreElement = document.getElementById("score");
 const timeElement = document.getElementById("time");
 const endGameElement = document.getElementById("end-game-container");
 
-// 課題の単語
-const words = ['abs', 'all', 'and', 'any', 'as', 'ascii', 'assert', 'async', 'await', 'bin', 'bool', 'break', 'breakpoint', 'bytearray', 'bytes', 'chr', 'class', 'compile', 'complex', 'continue', 'copyright', 'credits', 'def', 'del', 'delattr', 'dict', 'dir', 'divmod', 'elif', 'else', 'eval', 'except', 'exec', 'exit', 'filter', 'finally', 'float', 'for', 'format', 'from', 'frozenset', 'global', 'globals', 'hash', 'help', 'hex', 'id', 'if', 'import', 'in', 'input', 'int', 'is', 'isinstance', 'issubclass', 'iter', 'lambda', 'len', 'list', 'locals', 'map', 'max', 'min', 'next', 'nonlocal', 'not', 'object', 'oct', 'open', 'or', 'ord', 'pass', 'pow', 'print', 'quit', 'raise', 'range', 'repr', 'return', 'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'str', 'sum', 'super', 'try', 'tuple', 'type', 'while', 'with', 'yield', 'zip','Exception', 'False', 'None', 'True', '_', ];
+document.getElementById("menu").style.display ="none";
+
+
+targetLanguage.innerText = "Python";
+
+// Python
+const pythonSymbols = [
+['abs','絶対値'], 
+['all', '全て'],
+['and', 'さらに'],
+['any', 'どれか'],
+['as', '〜として'],
+['ascii', 'アスキー'],
+['assert', 'アサート文の実行'],
+['async', '非同期'],
+['await', '非同期処理を待機'],
+['bin', '2進数へ変換'],
+['bool', '真偽値の判定'],
+['break', 'ループを抜ける'],
+['breakpoint', 'ブレイクポイントの設定'],
+['bytearray', 'バイト配列へ変換する'],
+['bytes', 'bytes型へ変換する'],
+['chr', 'Unicode 文字に変換'],
+['class', 'クラス'],
+['compile', 'コンパイル'],
+['complex', '複素数'],
+['continue', '繰り返し処理を1つスキップする'],
+['copyright', 'コピーライト'],
+['credits', 'クレジット'],
+['def', '自作関数の定義'],
+['del', '削除'],
+['delattr', '属性削除'],
+['dict', '辞書の作成'],
+['dir', '全ての属性を出す'],
+['divmod', '整数の商と余りを出す'],
+['elif', 'もし〜ならば'],
+['else', 'でなければ'],
+['eval', '文字列をコードとして実行する（文は不可）'],
+['except', '例外'],
+['exec', '文字列をコードとして実行する（文も可能）'],
+['exit', 'REPLの処理を終了する'],
+['filter', '条件に合う要素を抜き出す'],
+['finally', '最後に'],
+['float', '浮動小数点'],
+['for', 'for 繰り返し'],
+['format', '文字列内に変数値を埋め込む'],
+['from', '読み込むモジュールの指定'],
+['frozenset', ''],
+['global', ''],
+['globals', ''],
+['hash', 'ハッシュ'],
+['help', ''],
+['hex', '16進数へ変換'],
+['id', '変数の id を確認する'],
+['if', ''],
+['import', ''],
+['in', 'リストやタプルなどに特定の要素が含まれるか判定'],
+['input', 'インプット'],
+['int', '整数にする'],
+['is', '〜である'],
+['isinstance', 'あるオブジェクトがサブクラスかを判定する'],
+['issubclass', 'あるクラスがサブクラスかを判定する'],
+['iter', 'イテレータへ変換する'],
+['lambda', 'ラムダ式'],
+['len', '長さ'],
+['list', 'リスト'],
+['locals', '定義されているローカル変数を返す'],
+['map', '各値に関数を実行する'],
+['max', '最大値を求める'],
+['min', '最小値を求める'],
+['next', '次'],
+['nonlocal', 'nonlocal スコープ'],
+['not', '〜でない'],
+['object', 'オブジェクト'],
+['oct', '8進数へ変換'],
+['open', 'ファイルを開く'],
+['or', 'または'],
+['ord', '文字をUnicode値へ変換する'],
+['pass', '何もしないときに(まだ未実装のときに)記述する'],
+['pow', ''],
+['print', '出力する'],
+['quit', 'スクリプトを終了させる'],
+['raise', ''],
+['range', '連続した数値を生成する'],
+['repr', 'コードの例を生成する'],
+['return', '値を返す'],
+['reversed', '要素を逆にする'],
+['round', '四捨五入'],
+['set', '集合型'],
+['setattr', 'オブジェクトに属性を追加する'],
+['slice', '部分選択・代入'],
+['sorted', '並べ替え'],
+['str', '文字列にする'],
+['sum', '合計する'],
+['super', '親クラスに関するオブジェクトを返す'],
+['try', '例外が発生する可能性がある処理を実行する'],
+['tuple', 'タプルにする'],
+['type', '型を調べる'],
+['while', '〜の間 繰り返す'],
+['with', '特定の処理の前処理と後処理を設定する'],
+['yield', 'ジェネレータで値を生成する'],
+['zip', '複数のリストを同時に処理する'],
+['Exception', '例外'],
+['False', '偽'],
+['None', '初期化がされていない状態'],
+['True', '真'],
+['_', '前の処理を呼び出す']
+];
+
+let symbols = pythonSymbols;
 
 // 現在の単語
 var currentWord = "";
@@ -38,26 +160,31 @@ let difficulty =
 // スタート時のテキストにフォーカス
 text.focus();
 
-// カウントダウン
-const timeInterval = setInterval(updateTime, 1000);
-
 // 現在のワードを取得
 function getCurrentWord() {
-  currentWord = words[currentNumber];
+  currentWord = symbols[currentNumber][0];
   return currentWord
 }
 
+function getCurrentWordDocs() {
+  currentWordDocs = symbols[currentNumber][1];
+  return currentWordDocs
+}
+
+
 // DOMに単語を追加
 function addWordToDOM() {
-    currentWord = getCurrentWord();
-    word.innerHTML = currentWord;
+    let currentWord = getCurrentWord();
+    symbol.innerHTML = currentWord;
+    symbolDocs.innerHTML = getCurrentWordDocs();
     playWord(currentWord);
+
 }
 
 // スコアを更新
 function updateScore() {
   score++;
-  scoreElement.innerHTML = score;
+  scoreElement.innerHTML = `${score} 点`;
 }
 
 // 時間を更新
@@ -87,6 +214,9 @@ function gameClear() {
   endGameElement.style.display = "flex";
 }
 
+// カウントダウン
+const timeInterval = setInterval(updateTime, 1000);
+
 text.addEventListener("input", (e) => {
   const insertedText = e.target.value;
   
@@ -105,4 +235,6 @@ text.addEventListener("input", (e) => {
 });
 
 
-addWordToDOM();
+addWordToDOM();  
+
+}
