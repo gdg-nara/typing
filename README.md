@@ -51,7 +51,7 @@ str
 help
 not
 iter
-__init__
+_
 bytes
 class
 list
