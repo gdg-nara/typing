@@ -1,31 +1,23 @@
-function typing(){
+function typing(language){
 
 document.getElementById("playground").style.display = "";
 
 // セレクタ
 const symbol = document.getElementById("symbol");
 const symbolDocs = document.getElementById("symbolDocs");
-
 const text = document.getElementById("text");
 
 document.getElementById("targetLanguage").style.display = "true";
-
-
-
-
-
-
 const scoreElement = document.getElementById("score");
 const timeElement = document.getElementById("time");
 const endGameElement = document.getElementById("end-game-container");
 
 document.getElementById("menu").style.display ="none";
 
-
-targetLanguage.innerText = "Python";
+targetLanguage.innerText = language;
 
 // Python
-const pythonSymbols = [
+const Python = [
 ['abs','絶対値'], 
 ['all', '全て'],
 ['and', 'さらに'],
@@ -128,7 +120,26 @@ const pythonSymbols = [
 ['_', '前の処理を呼び出す']
 ];
 
-let symbols = pythonSymbols;
+const Ruby = [
+  ['def', '関数宣言'],
+  ['map',''], 
+  ['reduce', ''],
+];
+
+const JavaScript = [
+  ['function', '関数'],
+  ['if','もし'], 
+  ['else', 'でなければ'],
+];
+
+const HTML = [
+  ['div', ''],
+  ['table',''], 
+  ['head', ''],
+];
+
+
+let symbols = eval(language);
 
 // 現在の単語
 var currentWord = "";
