@@ -4,7 +4,7 @@
 
 ## Demo
 
-[https://gdg-nara.github.io/type-python](https://gdg-nara.github.io/type-python)
+[https://gdg-nara.github.io/type-python](https://gdg-nara.github.io/typing)
 
 ## 言語
 
