@@ -17,19 +17,18 @@
                 <button  onclick='typing("Ruby")'>Ruby</button>
                 <button onclick='typing("JavaScript")'>JavaScript</button>
                 <button onclick='typing("HTML")'>HTML</button>
+                <button onclick='typing("Clojure")'>Clojure</button>
             </div>
         </div>    
 
         <div id="playground" style="display: none">
             <h2 id="targetLanguage">Typing</h2>
-            <small></small>
-
             <h1 id="symbol"></h1>
             <h1 id="symbolDocs"></h1>
 
             <input type="text" id="text" autocomplete="off" placeholder="" />
 
-            <p class="time-container">制限時間: <span id="time">180秒</span></p>
+            <p class="time-container" id="timeLabel">制限時間: <span id="time">180秒</span></p>
 
             <p class="score-container"><span id="score">0 点</span></p>
 

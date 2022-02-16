@@ -133,8 +133,8 @@ const JavaScript = [
 ];
 
 const HTML = [
-  ['div', ''],
-  ['table',''], 
+  ['div', 'ブロックを作る'],
+  ['table','表'], 
   ['head', ''],
 ];
 
@@ -151,7 +151,7 @@ var currentNumber = 0;
 let score = 0;
 
 // Init time
-let time = 180;
+var time = 5;
 
 // player
 const player = new talkify.Html5Player();
@@ -209,20 +209,32 @@ function updateTime() {
   }
 }
 
+function clearWord(){
+  document.getElementById("symbol").style.display = "None";
+  document.getElementById("symbolDocs").style.display = "None";
+  document.getElementById("time").style.display = "None";
+  document.getElementById("score").style.display = "None";
+  document.getElementById("timeLabel").style.display = "None";
+  document.getElementById("text").style.display = "None";
+  document.getElementById("targetLanguage").style.display = "None";
+  
+  
+}
+
 function gameOver() {
   endGameElement.innerHTML = `
   <h1>タイムオーバー</h1>
   <p>得点は  ${score} です。</p>
   <button onclick="location.reload()" style="
-  background: #4e5e73; color: #fff;">もう一度挑戦する</button>
-    `;
-
+  background: #4e5e73; color: #fff;">もう一度挑戦する</button>`;
   endGameElement.style.display = "flex";
+  clearWord(); 
 }
 
 function gameClear() {
   endGameElement.innerHTML = `<h1>ゲームクリア！！</h1>`;
   endGameElement.style.display = "flex";
+  clearWord();
 }
 
 // カウントダウン
@@ -232,10 +244,11 @@ text.addEventListener("input", (e) => {
   const insertedText = e.target.value;
   
   if (insertedText === currentWord) {
-    if(currentNumber <= 98){
+    if(currentNumber < symbols.length - 1){
       currentNumber = currentNumber + 1;
     } else {
       gameClear();
+
     }
 
     addWordToDOM();
