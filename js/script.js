@@ -151,7 +151,7 @@ var currentNumber = 0;
 let score = 0;
 
 // Init time
-var time = 5;
+var time = 180;
 
 // player
 const player = new talkify.Html5Player();
